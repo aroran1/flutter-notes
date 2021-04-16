@@ -13,6 +13,8 @@ Flutter uses a programming language called Dart which is focused on building Fro
 Dart is a programming language craeted by Google (same as flutter). Dart is a object-oriented and a strongly types language. Its syntax is a mixture of Javascript, Java, C# (but you don't need to know them upfront). 
 
 ## Flutter vs Dart
+
+```
 ------------------------------                          ---------------------------------  
 |                             |                         |                               |
 |            Dart             |-------------------------|            Flutter            |
@@ -26,3 +28,4 @@ Dart is a programming language craeted by Google (same as flutter). Dart is a ob
                                                         ----------------------------------  
                                                         |   a framework (set of features) |
                                                         -----------------------------------
+```
