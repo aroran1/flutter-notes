@@ -54,4 +54,10 @@ Once Flutter tool, xcode and git is installed run below command to access xcode 
 - Now this new device has been added to the AVD list. Hit play button to start the emulator.
 - run `flutter run` from commandline
 - License issue - run `flutter doctor --android-licenses` > accept licenses
-- Once above resolved you can see the same above app loaded via Android emulator 
+- Once above resolved you can see the same above app loaded via Android emulator
+
+You can use either xcode or Andriod studio IDE to edit files for this project or you can do that via VS Code. Just add below extensions:
+- Flutter
+- Material Icon Theme
+
+OPen project in VS Code. Edit `first_flutter_app/lib/main.dart`, change `_counter = _counter + 2;` and hit `R` (to refresh) on the terminal instead of quiting and restarting the process and test your changes on the emulator.
