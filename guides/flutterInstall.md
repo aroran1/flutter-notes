@@ -65,3 +65,4 @@ Open project in VS Code. Edit `first_flutter_app/lib/main.dart`, change `_counte
 
 ## Flutter Web setup
 [https://flutter.dev/docs/get-started/web](https://flutter.dev/docs/get-started/web)
+- run `flutter run -d chrome` for existing project
