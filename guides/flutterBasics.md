@@ -41,11 +41,37 @@
 - use camel cased function names, use the name to describe its fucntionaly to make it easier for others to understand it
 - Dart is a object oriented language. Everything in dart is a object, meaning everything is in object data structure which is used by dart internally, ie 1 is also an object which has some additional info. Object also helps the relation between different datas, ie name and age individually may not be obviously related if stored individually.
   - To create an object you need to create a blueprint of it to tell dart how object looks like, this can be done by `class`. Give a name to a class starting with a capital letter
-  class Person {
-    String name = 'Max';
-    int age = 30; 
-  }
-  - the you will craete an instance of that class Person by `var p1 = Person()` // new keyword with Person is not required in Dart which will instantiate that class instance and the you can access the properties of that class object by `p1.age` 
+  ```
+    class Person {
+      String name = 'Max';
+      int age = 30; 
+    }
+  ```
+  - the you will craete an instance of that class Person by `var p1 = Person()` // new keyword with Person is not required in Dart which will instantiate that class instance and the you can access the properties of that class object by `p1.age`
+  - class with constructor and named arguments
+  ```
+    class Person {
+      String name = 'Max';
+      int age = 30; 
+      
+      // in dart it doesn't need contructor just need to call it with class namem with named args and default value
+      // or pass @required (provided by flutter) with the args to make them required 
+      Person({ @required String inputName, @required int age = 30}) { 
+        name = inputName;
+        this.age = age
+      }
+    }
+    var p1 = Person(age: 31, inputName: 'Manu') // named arguments so no need to remember the position of the passed argument
+  
+    // shortcut of above class by keeping the properties name same so don't need to manually set their values
+    class Person {
+      String name = 'Max';
+      int age = 30; 
+      
+      Person({ @required String name, @required int age = 30})
+    }
+    var p1 = Person(age: 31, name: 'Manu')
+  ```
 ```
 // 1
 void addNumber(int a, double b) {
@@ -75,4 +101,31 @@ hello 4
 hello 5
 ```
 ## main.dart
-- 
+- import widget with `import 'package:flutter/material.dart';` Its created by the flutter team and unlocks a lot of core features to do most of the heavy lifting for creating the app.
+  - material widget has a base class which allows you to craete your own widgets
+- You need to pass build method into the call which will be called by flutter to draw pixels on the screen and it recieves a param called context (holds meta information) with its special iobject type `BuildContext`
+  - build is a method which return a Widget so it needs to be called as `Widget build(BuildContext context) {}` which returns `MaterialApp()` as a widget and accepts named arguments. MaterialApp is a class and accepts args as per contructor methods. StatelessWidget or StatefulWidget
+  ```
+    class MyApp extends StatelessWidget {
+      Widget build(BuildContext context) {
+        return MaterialApp(home: Text('Hello!'));
+      }
+    }
+  ```
+  - to draw / render the app app onto the screen we need to call `runApp` method provided by flutter/material package and pass our app class ot it as an argument (with paraenthesis)
+  ```
+    void main() {
+      runApp(MyApp());
+    }
+    or can be written as 
+    void main() => runApp(MyApp());
+  ```
+  - `@override` method provided by flutter. Add this to clarify that you are not accidentally overrirding some method. In this case `Widget` is provided by StatelessWidget and we are overriding to return our widget.
+  ```
+  class MyApp extends StatelessWidget {
+    @override
+    Widget build(BuildContext context) {
+      return MaterialApp(home: Text('Hello!'));
+    }
+  }
+  ```
