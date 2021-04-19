@@ -60,4 +60,8 @@ You can use either xcode or Andriod studio IDE to edit files for this project or
 - Flutter
 - Material Icon Theme
 
-OPen project in VS Code. Edit `first_flutter_app/lib/main.dart`, change `_counter = _counter + 2;` and hit `R` (to refresh) on the terminal instead of quiting and restarting the process and test your changes on the emulator.
+Open project in VS Code. Edit `first_flutter_app/lib/main.dart`, change `_counter = _counter + 2;` and hit `R` (to refresh) on the terminal instead of quiting and restarting the process and test your changes on the emulator.
+
+
+## Flutter Web setup
+[https://flutter.dev/docs/get-started/web](https://flutter.dev/docs/get-started/web)

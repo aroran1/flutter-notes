@@ -48,3 +48,53 @@ Flutter doesn't point any of your widget back to native UI of the plantform (unl
 - Great performance
 - Full control
 - less platform -limitations / no translations loss
+
+## Flutter UI
+Flutter by default uses `Material Design System` created (and heavily used) by Google. It's NOT Google design for everyone! It is indeed highly customizable (and works on iOS devices, too).
+
+Material Design is built into Flutter but you also find Apple-styled (Cupertino) widgets. It gives you full flexibility on how your app should look. 
+
+**Flutter competitors**
+- React Native
+- Ionic
+
+Difference Table
+```
+__________________________________________________________________________________________________________________
+|                                    |                                      |                                     |
+|               Flutter              |            React Native              |                 Iconic              |     
+|____________________________________|______________________________________|_____________________________________|
+|                                    |                                      |                                     |
+|           Dart + Flutter           |         Javascript / React.js        |   Javascript (any / no framework)   | 
+|____________________________________|______________________________________|_____________________________________|
+|                                    |            Partly Compiled           |     Web View hosted web apps        |
+|         Compiled Native Apps       |      (UI Components) Native Apps     |     served in a app wrapper         |
+|____________________________________|______________________________________|_____________________________________|
+|     Doesn't compile to iOS /       |         Does compile to iOS /        |      Doesn't compile to iOS /       |
+|      Android UI Components         |        Android UI Components         |       Android UI Components         |
+|____________________________________|______________________________________|_____________________________________|
+|    Cross Platform (Mobile apps,    |      Mostly mobile apps ( + React    |     Cross Platform (Mobile apps,    |
+|     web apps, desktop apps)        |              Native Web              |       web apps, desktop apps)       |
+|____________________________________|______________________________________|_____________________________________|
+|                                    |                                      |                                     |
+|       Developed by Google          |         Developed by Facebook        |         Developed by Iconic         | 
+|____________________________________|______________________________________|_____________________________________|
+```
+
+**Key Concepts**
+- Installation
+- Basics
+- Debugging
+- More Widgets, Styling, App Logic
+- Responsive & Adaptive UIs (so your app works on various screen sizes)
+- Widget & Flutter internals (Performance, code changes and optimizations)
+- Navigation & Multiple screens
+- State Management / Data
+- User Inputs / Forms
+- Sending http requests
+- User Authentication
+- Animations
+- User Device Features (Camera / Maps)
+- Run Native Device
+- Publishing the app
+- Roundups & how to develop great apps
