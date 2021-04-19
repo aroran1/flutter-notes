@@ -72,6 +72,7 @@
     }
     var p1 = Person(age: 31, name: 'Manu')
   ```
+  - any function that belongs to a class should go inside the class as its method instead of sitting outside
 ```
 // 1
 void addNumber(int a, double b) {
@@ -136,4 +137,20 @@ hello 5
 - Widget Types
   - Output / Visible widgets like Button, Text(), Cards() - interactive / informational
   - Layout / Invisible widgets like, Row(), Column(), ListView() - goive structure to the page
-  - Container widgets can be either output / layout depending on the usage, can give structure but also can be styles too
+  - Container widgets can be either output / layout depending on the usage, can give structure but also can be styles too 
+- any function that belongs to a Widget class should go inside that class as its method instead of sitting outside
+- Make sure to pass the `answerQuestion` as a pointer instead of a value by not using it with parenthesis. We are passing the name of the function as a pointer instead od the result of the function
+  - without `onPressed` having a valid function button state remains disable
+```
+ body: Column(
+  children: <Widget>[
+    Text('This is question!'),
+    ElevatedButton(
+      child: Text('Answer 1'),
+      onPressed: answerQuestion, 
+    ),
+    ElevatedButton(
+
+or could also be done as 
+onPressed: () => print('test);, 
+```
