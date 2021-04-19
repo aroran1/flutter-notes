@@ -154,3 +154,42 @@ hello 5
 or could also be done as 
 onPressed: () => print('test);, 
 ```
+
+### What is state
+State is Data/Information used by your App. App state could be authenticated Users, loaded jobs. Widget State is Current User Input, Is a loading spinner being shown?
+
+Widgets can be of two types:
+- StatelessWidget
+- StatefulWidget
+
+**Stateless** widgets are generally used to just output the data. They recieve data from outside via constructors (external data can change) but these widget don't change data internally. Data gets re-rendered when input data changes.
+`Input Data >>>>>> Widget >>>>>> Renders UI`
+
+**Stateful** same as statless widgets data can change externally but it can also change internally. Internal data is known as state. Data gets re-rendered when input data or local state changes. Creating Stateful widget is not as starightforward.
+- change `StatelessWidget` to statefulWidget
+- You need to create 2 classes, MyApp and MyAppState. When flutter rebuilds MyApp class gets recreated but MyAppState stays persistent which mean when the main widget re-render on the page, the external data changes but internal data doesn't get reset. MyAppState is also extended with the State which is attached to its widget by `State<MyApp>`
+- `State<MyApp>` tells that is class belongs to which widget
+- StatefulWidget has a craeteState method and returns state based on the MyAppState class
+```
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // implements create state
+    return MyAppState();
+  }
+}
+```
+- to avoid rerendering the whole page everytime the data change (to get performance gain), flutter's state class provide us with setState method which takes an annonymous function and inside its body we can make changes to the data
+- use setState to convert it into state
+```
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // implements create state
+    return MyAppState();
+  }
+}
+
+class MyAppState extends State<MyApp> {
+  var questionIndex = 0;
+```
