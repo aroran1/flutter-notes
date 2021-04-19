@@ -129,3 +129,11 @@ hello 5
     }
   }
   ```
+- Marial.dart comes with a baked in helper widget called `Scaffold()` to control how the UI willl look like, appBar is top bar, body is the main content of the page.
+  - AppBar: Title method accepts the `Text('my text')` widget which accepts the text 
+  - Body: only accepts 1 widget usually build with Layout / invisible widget to structure the page but for now test it with the `Text('my text')` widget which accepts teh text
+  - Tip: keep the additional end comma to auto format the code
+- Widget Types
+  - Output / Visible widgets like Button, Text(), Cards() - interactive / informational
+  - Layout / Invisible widgets like, Row(), Column(), ListView() - goive structure to the page
+  - Container widgets can be either output / layout depending on the usage, can give structure but also can be styles too
