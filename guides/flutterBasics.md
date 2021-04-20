@@ -180,7 +180,7 @@ class MyApp extends StatefulWidget {
 }
 ```
 - to avoid rerendering the whole page everytime the data change (to get performance gain), flutter's state class provide us with setState method which takes an annonymous function and inside its body we can make changes to the data
-- use setState to convert it into state
+- setState forces flutter to re-render the UI but not entirely instaed it calls the build of a particular widget so it only updates the relevant UI 
 ```
 class MyApp extends StatefulWidget {
   @override
@@ -193,3 +193,4 @@ class MyApp extends StatefulWidget {
 class MyAppState extends State<MyApp> {
   var questionIndex = 0;
 ```
+- In Dart to make a class, method or a variable you can prefix it with `_`. So to protect `MyAppState`, `questionIndex` and `answerQuestion` from being accessed from outside files we can name them as `_MyAppState` to make sure they are prviate instead of public.
