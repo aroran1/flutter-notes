@@ -194,3 +194,23 @@ class MyAppState extends State<MyApp> {
   var questionIndex = 0;
 ```
 - In Dart to make a class, method or a variable you can prefix it with `_`. So to protect `MyAppState`, `questionIndex` and `answerQuestion` from being accessed from outside files we can name them as `_MyAppState` to make sure they are prviate instead of public.
+- general rule of thumb is to have 1 widget per file unless in exceptional case where widgets are related or have dependencies
+
+## question.dart
+  - add a question.dart file to separate the re-rendering of question UI.
+  - useing class constructor method and adding `final` to avoid the immutable warning, which tells dart that this particular value will not chnage after its initialization. The class question is initialised by its constructor methods.
+  - import question.dart into main and replace the Text widget with it
+  ```
+  import 'package:flutter/material.dart';
+
+  class Question extends StatelessWidget {
+    final String questionText;
+
+    Question(this.questionText);
+
+    @override
+    Widget build(BuildContext context) {
+      return Text(questionText);
+    }
+  }
+  ```
