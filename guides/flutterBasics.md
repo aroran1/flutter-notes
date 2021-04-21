@@ -197,7 +197,7 @@ class MyAppState extends State<MyApp> {
 - general rule of thumb is to have 1 widget per file unless in exceptional case where widgets are related or have dependencies
 
 ## question.dart
-  - add a question.dart file to separate the re-rendering of question UI.
+  - add a question.dart file to separate the re-rendering of question UI, helps with file size control and reusability
   - useing class constructor method and adding `final` to avoid the immutable warning, which tells dart that this particular value will not chnage after its initialization. The class question is initialised by its constructor methods.
   - import question.dart into main and replace the Text widget with it
   ```
