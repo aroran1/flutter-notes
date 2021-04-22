@@ -29,9 +29,20 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    var questions = [
-      'What\'s your favourite color?',
-      'What\'s your favourite animal?',
+    // creating a map
+    const questions = [
+      {
+        'questionText': 'What\'s your favourite color?',
+        'answers': ['Red', 'Yellow', 'White', 'Black']
+      },
+      {
+        'questionText': 'What\'s your favourite animal?',
+        'answers': ['Rabbit', 'Dog', 'Elephant', 'Tiger']
+      },
+      {
+        'questionText': 'What\'s your favourite tutor?',
+        'answers': ['Max', 'Andrew', 'Dimitri', 'Chris']
+      }
     ];
     // return MaterialApp(home: Text('Hello!'));
     return MaterialApp(
@@ -40,11 +51,16 @@ class _MyAppState extends State<MyApp> {
           title: Text('My First App\'s title'),
         ),
         body: Column(
-          children: <Widget>[
-            Question(questions[_questionIndex]),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
+          children: [
+            Question(questions[_questionIndex]['questionText']),
+            ...(questions[_questionIndex]['answers'] as List<String>)
+                // Note: map doesn't alter the original questions list instead to makes copy of it and retuns a new list
+                .map((answer) {
+              return Answer(_answerQuestion, answer);
+            }).toList()
+            // Answer(_answerQuestion),
+            // Answer(_answerQuestion),
+            // Answer(_answerQuestion),
           ],
         ),
       ),

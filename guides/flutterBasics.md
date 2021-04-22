@@ -199,6 +199,9 @@ class MyAppState extends State<MyApp> {
 ## question.dart
   - add a question.dart file to separate the re-rendering of question UI, helps with file size control and reusability
   - using class constructor method and adding `final` to avoid the immutable warning, which tells dart that this particular value will not chnage after its initialization. The class question is initialised by its constructor methods.
+    - difference between final and const is we know the value of a const variable at the time of writing the code (compile time constant which is also as runtime constant because it never changes ) but with final we don't. Its a runtime constant value and also it depends on the instance of that class.
+    - const can be given to a variable name and its value so whne Dart stores the address of the data in the memory it know it it can be overwritten or not.
+    `const x = const [...]`
   - import question.dart into main and replace the Text widget with it
   ```
   import 'package:flutter/material.dart';
@@ -243,5 +246,42 @@ class Answer extends StatelessWidget {
     );
   }
 }
+```
 
+### added map and iterating over it
+```
+var questions = [
+      {
+        'questionText': 'What\'s your favourite color?',
+        'answers': ['Red', 'Yellow', 'White', 'Black']
+      },
+      {
+        'questionText': 'What\'s your favourite animal?',
+        'answers': ['Rabbit', 'Dog', 'Elephant', 'Tiger']
+      },
+      {
+        'questionText': 'What\'s your favourite tutor?',
+        'answers': ['Max', 'Andrew', 'Dimitri', 'Chris']
+      }
+    ];
+ return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('My First App\'s title'),
+        ),
+        body: Column(
+          children: [
+            Question(questions[_questionIndex]['questionText']),
+            ...(questions[_questionIndex]['answers'] as List<String>)
+                // Note: map doesn't alter the original questions list instead to makes copy of it and retuns a new list
+                .map((answer) {
+              return Answer(_answerQuestion, answer);
+            }).toList()
+            // Answer(_answerQuestion),
+            // Answer(_answerQuestion),
+            // Answer(_answerQuestion),
+          ],
+        ),
+      ),
+    );
 ```
