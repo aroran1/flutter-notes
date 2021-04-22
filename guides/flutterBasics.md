@@ -198,7 +198,7 @@ class MyAppState extends State<MyApp> {
 
 ## question.dart
   - add a question.dart file to separate the re-rendering of question UI, helps with file size control and reusability
-  - useing class constructor method and adding `final` to avoid the immutable warning, which tells dart that this particular value will not chnage after its initialization. The class question is initialised by its constructor methods.
+  - using class constructor method and adding `final` to avoid the immutable warning, which tells dart that this particular value will not chnage after its initialization. The class question is initialised by its constructor methods.
   - import question.dart into main and replace the Text widget with it
   ```
   import 'package:flutter/material.dart';
@@ -214,3 +214,34 @@ class MyAppState extends State<MyApp> {
     }
   }
   ```
+
+## answer.dart
+Extracted answer into its own stateless widget file and pass the function as a pointer (meaning without ())
+```
+import 'package:flutter/material.dart';
+
+class Answer extends StatelessWidget {
+  final Function selectHandler;
+
+  Answer(this.selectHandler);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      child: ElevatedButton(
+        // color: Colors.blue,
+        // style: ButtonStyle(
+        //     backgroundColor: MaterialStateProperty.all<Color>(Colors.blue)),
+        style: ElevatedButton.styleFrom(
+          primary: Colors.blue,
+          textStyle: TextStyle(color: Colors.white),
+        ),
+        child: Text('Answer 1'),
+        onPressed: selectHandler,
+      ),
+    );
+  }
+}
+
+```

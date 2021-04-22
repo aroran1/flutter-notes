@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './question.dart';
+import './answer.dart';
 
 // void main() {
 //   runApp(MyApp());
@@ -41,19 +42,9 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: <Widget>[
             Question(questions[_questionIndex]),
-            ElevatedButton(
-              child: Text('Answer 1'),
-              onPressed:
-                  _answerQuestion, // we are passing the name of the function as a pointer instead od the result of the function
-            ),
-            ElevatedButton(
-              child: Text('Answer 2'),
-              onPressed: _answerQuestion,
-            ),
-            ElevatedButton(
-              child: Text('Answer 3'),
-              onPressed: _answerQuestion,
-            )
+            Answer(_answerQuestion),
+            Answer(_answerQuestion),
+            Answer(_answerQuestion),
           ],
         ),
       ),
