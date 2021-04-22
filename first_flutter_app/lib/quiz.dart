@@ -15,10 +15,12 @@ class Quiz extends StatelessWidget {
     return Column(
       children: [
         Question(questions[questionIndex]['questionText']),
-        ...(questions[questionIndex]['answers'] as List<String>)
+        ...(questions[questionIndex]['answers'] as List<Map<String, Object>>)
             // Note: map doesn't alter the original questions list instead to makes copy of it and retuns a new list
             .map((answer) {
-          return Answer(answerQuestion, answer);
+          // onPressed is a function with no arguments we can't pass it directly
+          // but we can pass anonymous function that recieves answerQuestion function
+          return Answer(() => answerQuestion(answer['score']), answer['text']);
         }).toList()
         // Answer(_answerQuestion),
         // Answer(_answerQuestion),
