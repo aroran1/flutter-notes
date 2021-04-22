@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import './question.dart';
-import './answer.dart';
+import './quiz.dart';
+import './result.dart';
 
 // void main() {
 //   runApp(MyApp());
@@ -19,7 +19,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   // creating a map
-  static const questions = [
+  static const _questions = [
     {
       'questionText': 'What\'s your favourite color?',
       'answers': ['Red', 'Yellow', 'White', 'Black']
@@ -40,8 +40,8 @@ class _MyAppState extends State<MyApp> {
       _questionIndex = _questionIndex + 1;
     });
     // print(_questionIndex);
-    if (_questionIndex < questions.length) {
-      print('No more questions!');
+    if (_questionIndex < _questions.length) {
+      print('No more _questions!');
     } else {
       print(_questionIndex);
     }
@@ -55,23 +55,13 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text('My First App\'s title'),
         ),
-        body: _questionIndex < questions.length
-            ? Column(
-                children: [
-                  Question(questions[_questionIndex]['questionText']),
-                  ...(questions[_questionIndex]['answers'] as List<String>)
-                      // Note: map doesn't alter the original questions list instead to makes copy of it and retuns a new list
-                      .map((answer) {
-                    return Answer(_answerQuestion, answer);
-                  }).toList()
-                  // Answer(_answerQuestion),
-                  // Answer(_answerQuestion),
-                  // Answer(_answerQuestion),
-                ],
+        body: _questionIndex < _questions.length
+            ? Quiz(
+                answerQuestion: _answerQuestion,
+                questionIndex: _questionIndex,
+                questions: _questions,
               )
-            : Center(
-                child: Text('You did it!'),
-              ),
+            : Result(),
       ),
     );
   }
