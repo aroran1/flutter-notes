@@ -285,3 +285,40 @@ var questions = [
       ),
     );
 ```
+
+## Debugging and Actual Device Testing
+**Android**
+- Settings >> Developer Options >> Tap on build number 7 times >> Developer options >> USB Debugging turn on
+- connect your device with USB cable >> Rebuild your app >> VS Code >> Select a device o use, should show your device 
+
+**iOS**
+- Simulator
+  - Your Flutter app code >> iOS folder >> open .xcodeproj file in xcode
+  - click on `Runner` in the left bar >> Signing & Capabilities >> add your apple account
+    - You need apple developer account to activate this [https://developer.apple.com/](https://developer.apple.com/)
+    - You need to pay a fee to publish your apple app but for developing / testing you don't need to pay any fee
+  - once your account is set-up, you cna run your code either via emulator or with an actual device
+  - VS Code terminal command to open emulator `open -a Simulator.app` and rebuild your project by `Run >> Run without debugger` to open your app in the emulator device
+- Actual device with USB Cable
+  - Connect your device with USB cable, then either selcet the device from xcode or vs code (may not work from vs code)
+
+- Test on rotation with settings
+- You can set you device to use hardware keyboard
+
+**Errors**
+- watchout for missing `;`
+- look at application debugger
+- user `print(...code...)` to see what's printed in the console (tip: read error from the top)
+- run you app in Debug mode, set breakpoints and analyse
+  - don't use debugger mode all the time due to performance
+  - use mini-toolbar to play or step into
+- Layout and performance degugging
+  - VS code - `cmd + shift + p` >> type: Dart: dev tools >> choose the device you want to debug >> choose what you wish to debug
+  - select `Dev Debug` will open in a browser window with your app's layout
+    - choose `select widget mode` to see the debugger on the layout
+    - `Debug paint` shows the UI element alignments
+    - `Performance Overlay` - to help you understand performance better but there is huge difference ion app performance on debug / production mode
+    - `Repaint Rainbow` - is to show which elements are re-rendering on the UI
+      - repainting comes from memory and rebuild is more expensive task so repaint is better then rebuild
+      - optimization, could be the elements that need repainting can be stored inside an individual widget so it doesn't cause repaint of the parent widgets 
+    - `timeline` for recording and test performance and memory leaks, or unused (not-let go of data observations)
