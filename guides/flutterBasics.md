@@ -322,3 +322,19 @@ var questions = [
       - repainting comes from memory and rebuild is more expensive task so repaint is better then rebuild
       - optimization, could be the elements that need repainting can be stored inside an individual widget so it doesn't cause repaint of the parent widgets 
     - `timeline` for recording and test performance and memory leaks, or unused (not-let go of data observations)
+
+### Styles
+Container Vs Column
+You don't have to use them individually but you can choose to mix and match them.
+```
+               Container               |                   Column 
+______________________________________________________________________________________
+- Takes exactly one child widget       | - Takes multiple (unlimited) child widgets
+- Rich alignment & styling options     | - Alignment but no styling options
+- Flexible width (e.g, child width,    | - Always takes full available width (row)
+  available width, ... )               |   / height (column)
+- Perfect for custom styling &         | - Must-use if widgets sit next to or above
+  alignment                            |    each other
+```
+
+Stateful widgets usually get build when their state changes causing UI to update and its child widgets. It can be a performance lag if you cause the whole app to repaint all the time. It could be a good idea to keep your app's homepage as a stateless widget.
