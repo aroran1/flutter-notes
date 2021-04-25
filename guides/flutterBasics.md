@@ -338,3 +338,15 @@ ________________________________________________________________________________
 ```
 
 Stateful widgets usually get build when their state changes causing UI to update and its child widgets. It can be a performance lag if you cause the whole app to repaint all the time. It could be a good idea to keep your app's homepage as a stateless widget.
+
+**Scrolling**
+- wrap Column inside SingleChildScrollView at the body leve for fullpage scrolling
+- or add scrolling to a particula widget alone as transactionList widget
+- to get the scrolling working wrap Column inside Container with fixed height and then inside SingleChildScrollView
+- or you can use ListView instead of SingleChildScrollView and Column
+
+**ListView with lazyload**
+- ListView(children: []) = smililar to SingleChildScrollView renders the full list at once and maintains them, Not suitable for large lists
+- ListView.builder: []) = not like SingleChildScrollView renders only visible list and renders / build only whats visible (built in lazy load machaism), suitable for large lists
+- ListView.builder: []) comes with itemBuider: (builderContext (returns the item), index as int) and itemCount: XYZ.length so it can count upfornt the item that'll be visible
+
